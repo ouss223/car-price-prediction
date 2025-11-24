@@ -1,0 +1,497 @@
+model,model_encoded
+108,31000.0
+2,42000.0
+2 Sedan,42000.0
+2008,58985.71428571428
+208,38951.724137931036
+3,54808.333333333336
+3 sedan,48500.0
+3-hybride,77950.0
+3008,71855.55555555556
+301,28280.0
+308,52069.230769230766
+308 GT,116995.0
+4008,46500.0
+407,32500.0
+408,141400.0
+5,55856.25
+500,46875.0
+500 C,59000.0
+5008,121450.0
+508,38750.0
+6,48816.666666666664
+7,124950.0
+A1 Sportback,68850.0
+A3,48375.0
+A3 Berline,65055.555555555555
+A3 Sportback,97833.33333333333
+A4,55866.666666666664
+A5 Sportback,116633.33333333333
+A6,56750.0
+A7 Sportback,205000.0
+ASX,61500.0
+Accent,58133.333333333336
+Agya,36850.0
+Altima,46000.0
+Amarok,88600.0
+Arona,73636.36363636363
+Arrizo 3,32000.0
+Arrizo 5,53500.0
+Astra,75000.0
+Ateca,98428.57142857143
+Attrage,32000.0
+Aveo,24000.0
+Aygo,28500.0
+BT-50,61300.0
+Baleno,70000.0
+Berlingo,64000.0
+Berlingo Utilitaire,48000.0
+Berlingo Van,57333.333333333336
+Bipper Tepee,34500.0
+Boxer,71333.33333333333
+Brio Amaze,31000.0
+C-Elysée,25000.0
+C-HR,90600.0
+C3,37225.0
+C3 Aircross,56000.0
+C3 Populaire,45000.0
+C4,36000.0
+C4 Cactus,42780.0
+C4 Picasso,44000.0
+C4 X,69900.0
+C5,31500.0
+C5 Aircross,70000.0
+CLA,139037.5
+CLE Coupé,316200.0
+CLS,157666.66666666666
+CR-V,99000.0
+CX-3,81500.0
+CX-5,71500.0
+CX-7,34000.0
+CX-9,118000.0
+Caddy,48600.0
+Camaro,142300.0
+Captiva,77500.0
+Captur,43916.666666666664
+Cayenne,133688.88888888888
+Cee'd,52000.0
+Celerio,37190.0
+Cerato,44250.0
+Cerato KOUP,34200.0
+Chairman,94000.0
+Ciaz,48333.333333333336
+City,61500.0
+Civic,76666.66666666667
+Classe A,110622.64150943396
+Classe A Berline,126625.0
+Classe B,87300.0
+Classe C,138145.3488372093
+Classe C coupé,95333.33333333333
+Classe E,132516.07142857142
+Classe E coupé,89733.33333333333
+Classe G,450000.0
+Classe GL,287500.0
+Classe S,131142.85714285713
+Classe X,145000.0
+Clio,43482.35294117647
+Combo Cargo,45000.0
+Compass,93780.0
+Corolla,68666.66666666667
+Corsa,36875.0
+Creta,78000.0
+Cruze,36000.0
+DS5,48000.0
+Defender 110,235000.0
+Discovery,269000.0
+Discovery Sport,153200.0
+Doblo,42433.333333333336
+Doblo Maxi,35500.0
+Dokker Van,30666.666666666668
+Ducato,75000.0
+Duster,44725.0
+E-208,63000.0
+E-Pace,155000.0
+E-tron,165000.0
+E-tron Sportback,169500.0
+EQA,151250.0
+EQB,180000.0
+EQS Berline,330000.0
+EV6,188000.0
+Ecosport,59817.64705882353
+Elantra,78000.0
+Ertiga,49500.0
+Expert Combi,74000.0
+Express Van,47000.0
+F-Pace,132000.0
+F-Type,245000.0
+FJ Cruiser,230000.0
+Fabia,46166.666666666664
+Fiesta,35150.0
+Figo,25500.0
+Fiorino,36142.857142857145
+Focus,46142.857142857145
+Focus sedan,53224.0
+Freelander,59000.0
+Fusion,67500.0
+GLA,140177.77777777778
+GLB,184000.0
+GLC,208650.0
+GLC Coupé,241430.4347826087
+GLE,298333.3333333333
+GLE Coupé,336307.6923076923
+GLK,80000.0
+GS,57666.666666666664
+GT,71500.0
+GT86,109000.0
+Golf 5,35000.0
+Golf 6,40200.0
+Golf 7,64641.02564102564
+Golf 8,108550.0
+Golf Plus,79000.0
+Grand Cherokee,188250.0
+Grand i10,44484.61538461538
+Grand i10 Sedan,37250.0
+Grande Punto,28250.0
+Groove,68000.0
+H5,55000.0
+HR-V,86250.0
+HS,83928.57142857143
+Haval H2,59250.0
+Haval H6,86996.55172413793
+Haval Jolion,80520.0
+Hilux Double Cabine,173625.0
+Hilux Simple Cabine,180000.0
+Ibiza,54307.692307692305
+Ibiza Populaire,42500.0
+Ioniq 5,129900.0
+Jazz,77000.0
+Jetta,45875.0
+Jimny 3 portes,89750.0
+Jimny 5 portes,117000.0
+Juke,57475.0
+Jumpy Combi,80500.0
+Jumpy Fourgon,72333.33333333333
+K2700,44000.0
+KUV 100,30318.18181818182
+Kadjar,58625.0
+Kamiq,74831.0
+Koleos,29500.0
+Kona,117000.0
+Kuga,71312.5
+Kwid Populaire,34250.0
+L200 Double Cabine,135000.0
+L200 Sportero,102500.0
+Lancer,29000.0
+Land Cruiser,129000.0
+Landtrek Double Cabine,84200.0
+Landtrek Simple Cabine,54750.0
+Leon,67000.0
+Leon SC,43300.0
+Logan,45000.0
+Logan MCV,40500.0
+M4,39500.0
+ML,93400.0
+Macan,259900.0
+Megane,55416.666666666664
+Megane Sedan,48500.0
+Megane coupé,35000.0
+Micra,28875.0
+Mokka,60750.0
+Mondeo,35000.0
+Mustang,145000.0
+Navara,96000.0
+Nemo,24500.0
+Octavia,63500.0
+One,101120.0
+Optima,47750.0
+Pajero,116500.0
+Palisade,250000.0
+Panamera,171125.0
+Panda,30250.0
+Panda City Cross,39350.0
+Partner,45837.5
+Partner Origin Utilitaire,52000.0
+Passat,84821.42857142857
+Passat CC,49500.0
+Picanto,41780.0
+Poer AT,116666.66666666667
+Poer MT,88000.0
+Polo,49482.75862068965
+Polo Sedan,49277.77777777778
+Prado,205000.0
+Q2,105400.0
+Q3,99566.66666666667
+Q3 Sportback,148000.0
+Q4 E-tron,170000.0
+Q5,129272.72727272728
+Q7,209600.0
+Q8,337000.0
+Q8 E-tron,185000.0
+Q8 Sportback e-tron,300000.0
+Qashqai,71942.1052631579
+RAV 4,94991.66666666667
+RCZ,39900.0
+Rafale,185000.0
+Range Rover,365000.0
+Range Rover Evoque,137000.0
+Range Rover Sport,248411.76470588235
+Range Rover Velar,238285.7142857143
+Ranger,88100.0
+Ranger Raptor,155000.0
+Renegade,76057.14285714286
+Rexton,49000.0
+Rifter,74000.0
+Rio 5p,56228.57142857143
+Rio Berline,47200.0
+S5,95000.0
+Sandero,37250.0
+Sandero Stepway,45500.0
+Scala,71000.0
+Scenic,63000.0
+Scirocco,35000.0
+Seltos,99500.71428571429
+Sonet,94000.0
+Sonic,43000.0
+Sonic 4p,29000.0
+Sorento,54760.0
+Sportage,92280.0
+Stonic,72714.28571428571
+Superb,117666.66666666667
+Swift,39857.142857142855
+Série 1,75650.0
+Série 1 3p,36000.0
+Série 2 Gran Coupé,126333.33333333333
+Série 3,74500.0
+Série 3 GT,90000.0
+Série 3 coupé,48450.0
+Série 4 Coupé,89750.0
+Série 4 Gran Coupé,114363.63636363637
+Série 5,134552.63157894736
+Série 7,151375.0
+T-Cross,80833.33333333333
+T-roc,78500.0
+TT,235000.0
+Taigo,94250.0
+Tarraco,97000.0
+Tiggo 2,39900.0
+Tiggo 3X,51833.333333333336
+Tiggo 4,58450.0
+Tiggo 7 Pro,75638.85714285714
+Tiggo 8 Pro,87000.0
+Tiguan,99366.66666666667
+Tipo 5 portes,54250.0
+Tipo Berline,59250.0
+Tivoli,58625.0
+Touareg,145000.0
+Trafic,50000.0
+Transporter Fourgon 6.1,67000.0
+Tucson,108750.0
+Veloster,42000.0
+Virtus,74000.0
+Vitara,64500.0
+Vivaro,42000.0
+Wingle 5 Double Cabine,47500.0
+Wrangler,218750.0
+Wrangler Unlimited,268750.0
+X-Type,45000.0
+X1,138533.33333333334
+X2,133666.66666666666
+X3,148777.77777777778
+X4,101500.0
+X5,151000.0
+X6,153200.0
+XCeed,96500.0
+XF,114666.66666666667
+XJL,119666.66666666667
+XUV 300,46500.0
+Yaris,35000.0
+Yaris Cross Hybride,109000.0
+ZS,60911.76470588235
+a3-berline,165990.0
+a3-sportback,159990.0
+a5-berline,259000.0
+a6-sportback-e-tron,269000.0
+accord,189990.0
+amarok,217480.0
+arona,96313.33333333333
+ateca,138646.66666666666
+austral,134900.0
+azera-hybride,249950.0
+azkara,113800.0
+baleno,71900.0
+bayon,90450.0
+berlingo-multispace,101900.0
+berlingo-van,67490.0
+boxer,98900.0
+boxer-plateau-double-cabine,109900.0
+c3-populaire,34626.0
+c31,44900.0
+c32,52900.0
+c4-x,90233.33333333333
+celerio-populaire,28935.0
+city,80740.0
+civic,145990.0
+civic-hybride,171990.0
+civic-type-r,274400.0
+cla,210900.0
+classe-a,181666.66666666666
+classe-a-berline,182333.33333333334
+classe-c,254750.0
+classe-c-hybride,331500.0
+classe-e,348233.3333333333
+classe-e-plug-in-hybride,364900.0
+cle-coupe,340000.0
+clio,77283.33333333333
+coaster,243000.0
+coolray,84800.0
+corolla,108900.0
+corolla-sedan-hybride,124800.0
+cr-v,190990.0
+cr-v-hybride,204990.0
+creta,118950.0
+doblo,68244.5
+doblo-combi,104900.0
+ducato,85000.0
+e-tron-gt,360000.0
+ec40-recharge,204900.0
+emgrand,71300.0
+eqb,249900.0
+eqe-berline,349000.0
+eqe-suv,429900.0
+ertiga,83650.0
+ev6,219980.0
+ev6-gt,262980.0
+ev9,302480.0
+ex30,148233.33333333334
+expert,88900.0
+expert-combi,152900.0
+express-combi,88900.0
+express-van,59950.0
+fabia,75313.33333333333
+fiorino-combi,81000.0
+fortuner,274800.0
+fronx,84400.0
+geometry,109000.0
+gla,214900.0
+glb,226900.0
+glc,340000.0
+glc-coupe,375000.0
+glc-coupe-plug-in-hybride,415000.0
+glc-hybride,418000.0
+glory-500,74900.0
+glory-580,99900.0
+glory-ix5,104900.0
+golf-8,134980.0
+grand-i10,56450.0
+grand-i10-populaire,34805.0
+grand-i10-sedan,56950.0
+gx3-pro,65550.0
+hiace,142000.0
+hiace-van,81900.0
+hilux,176350.0
+hilux-simple-cabine,123800.0
+hr-v,119900.0
+hs,104950.0
+hs-hybridplus,114950.0
+i10,33500.0
+i20,61965.0
+i30,72000.0
+i30 Fastback,73000.0
+i30-fastback,99950.0
+i4,239340.0
+i5,327900.0
+iX,239000.0
+iX3,169000.0
+ibiza,80980.0
+ioniq-5,189832.5
+ioniq-5-n,249950.0
+ioniq-6,204950.0
+ix,384900.0
+ix1,226900.0
+ix2,239900.0
+ix35,48166.666666666664
+jazz,85990.0
+jimny,104900.0
+jimny-5p,129900.0
+jumper,99900.0
+jumpy-combi,152900.0
+jumpy-fourgon,88900.0
+k01h,36900.0
+k01s,33900.0
+k02s,41900.0
+kamiq,100313.33333333333
+kona,143500.0
+kona-ev,123900.0
+kushaq,85980.0
+kwid,30095.0
+land-cruiser-76,244000.0
+land-cruiser-79,149800.0
+landtrek-double-cabine,100945.0
+landtrek-simple-cabine,77490.0
+leon,120313.33333333333
+macan-electric,355250.0
+master,87600.0
+megane,94950.0
+megane-sedan,105800.0
+monjaro,235000.0
+niro,134980.0
+octavia,128313.33333333333
+palisade-calligraphy,350050.0
+partner,64490.0
+picanto,60105.0
+picanto-populaire,32190.0
+polo,89980.0
+prado,370000.0
+q2,149990.0
+q3,199000.0
+q3-sportback,219000.0
+q6-e-tron,269000.0
+q6-sportback-e-tron,289000.0
+q7,449000.0
+rav-4-hybride,168500.0
+rifter,105900.0
+rx9,164950.0
+s5,84950.0
+scala,99313.33333333333
+scudo,86000.0
+scudo-combi,162000.0
+seltos,120980.0
+serie-1-5p,182150.0
+serie-2-gran-coupe,194700.0
+serie-3,238650.0
+serie-3-hybride,303233.3333333333
+serie-4-coupe,366900.0
+serie-4-gran-coupe,304900.0
+serie-5,359900.0
+serie-5-hybride,389900.0
+sonet,95480.0
+sorento-hybride,249980.0
+sportage,146980.0
+sportage-hybride,182480.0
+staria,159600.0
+staria-9-places,230016.66666666666
+starray,129800.0
+swift,60775.0
+t-cross,90313.33333333333
+taycan,448000.0
+tiguan,176980.0
+tipo-berline,79500.0
+traveller,169900.0
+tucson,180000.0
+tucson-hybride,177475.0
+tugella,199800.0
+venue,90000.0
+virtus,77980.0
+x1,206150.0
+x1-hybride,244566.66666666666
+x2,221650.0
+x3,373000.0
+x3-hybride-rechargeable,384900.0
+x4,399900.0
+xc40,208233.33333333334
+xc60,329400.0
+yaris-cross,119800.0
+yaris-hybride,84900.0
+zr-v,145000.0
+zs,84450.0
+zs-hybride,97950.0
