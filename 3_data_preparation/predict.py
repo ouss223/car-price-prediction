@@ -34,6 +34,15 @@ except FileNotFoundError:
     print("❌ Encoding files not found! Make sure brand_encoding.csv, body_type_encoding.csv, and model_encoding.csv are in the current directory.")
     exit(1)
 
+# Load the saved scaler
+try:
+    with open(r'C:\Users\ahmed\Downloads\car-price-prediction\3_data_preparation\scaler.pkl', 'rb') as f:
+        scaler = pickle.load(f)
+    print("✓ Scaler loaded")
+except FileNotFoundError:
+    print("❌ Scaler file not found!")
+    exit(1)
+
 # Load training data to get scaler parameters
 try:
     train_data = pd.read_csv(r'C:\Users\ahmed\Downloads\car-price-prediction\3_data_preparation\car_prices_final_preprocessed.csv')
@@ -45,55 +54,39 @@ except FileNotFoundError:
     exit(1)
 
 # ============================================
-# STEP 2: Get User Input
+# STEP 2: User Input as Dictionary
 # ============================================
 print("\n" + "="*60)
-print("ENTER CAR DETAILS")
+print("CAR DETAILS")
 print("="*60)
 
-# Show available options
-print("\nAvailable Brands:")
-brands = sorted(brand_encoding['brand'].unique())
-for i, brand in enumerate(brands, 1):
-    print(f"{i}. {brand}", end="  ")
-    if i % 5 == 0:
-        print()
-print("\n")
+# Define car details as a dictionary
+car_input = {
+    'brand': 'Volkswagen',
+    'model': 'Golf 7',
+    'body_type': 'Compacte',
+    'kilometrage': 146000,
+    'puissance_fiscale': 5,
+    'year': 2014,
+    'fuel_type': 'essence',
+    'transmission': 'Automatique',
+    'is_new': 'no'
+}
 
-brand = input("Enter brand name: ").strip()
+# Extract values from dictionary
+brand = car_input['brand']
+model_name = car_input['model']
+body_type = car_input['body_type']
+kilometrage = float(car_input['kilometrage'])
+puissance_fiscale = float(car_input['puissance_fiscale'])
+year = int(car_input['year'])
+fuel_type = car_input['fuel_type'].lower()
+transmission = car_input['transmission']
+is_new_input = car_input['is_new'].lower()
 
-print("\nAvailable Body Types:")
-body_types = sorted(body_type_encoding['body_type'].unique())
-for i, bt in enumerate(body_types, 1):
-    print(f"{i}. {bt}", end="  ")
-print("\n")
-
-body_type = input("Enter body type: ").strip()
-
-print("\nAvailable Models for selected brand:")
-available_models = model_encoding['model'].unique()
-print(f"(Total {len(available_models)} models in database)")
-
-model_name = input("Enter model name: ").strip()
-
-kilometrage = float(input("\nEnter mileage (km): "))
-puissance_fiscale = float(input("Enter fiscal power (CV): "))
-year = int(input("Enter registration year (YYYY): "))
-
-print("\nFuel Type Options:")
-print("1. essence")
-print("2. diesel")
-print("3. hybride")
-print("4. electrique")
-fuel_type = input("Enter fuel type: ").strip().lower()
-
-print("\nTransmission Options:")
-print("1. Automatique")
-print("2. Manuelle")
-transmission = input("Enter transmission: ").strip()
-
-print("\nIs this a new car?")
-is_new_input = input("Enter 'yes' or 'no': ").strip().lower()
+print(f"\nInput values:")
+for key, value in car_input.items():
+    print(f"  {key}: {value}")
 
 # ============================================
 # STEP 3: Preprocess EXACTLY Like Training
@@ -178,18 +171,13 @@ cols_to_scale = [
     'model_encoded'
 ]
 
-# Fit scaler on training data (excluding price column)
+# Load training data to get median values for filling NaNs
 train_data_no_price = train_data.drop('price', axis=1, errors='ignore')
-
-# Get only the base scaled columns from training data
 train_scale_cols = [col for col in cols_to_scale if col in train_data_no_price.columns]
-
-scaler = StandardScaler()
 train_scale_block = train_data_no_price[train_scale_cols].replace([np.inf, -np.inf], np.nan)
 train_scale_block = train_scale_block.fillna(train_scale_block.median())
-scaler.fit(train_scale_block)
 
-# Transform input data
+# Transform input data using the loaded scaler
 input_scale_block = input_df[cols_to_scale].replace([np.inf, -np.inf], np.nan)
 input_scale_block = input_scale_block.fillna(train_scale_block.median())
 input_df[cols_to_scale] = scaler.transform(input_scale_block)
@@ -278,7 +266,7 @@ try:
     prediction = model.predict(input_df)[0]
     
     print(f"\n{'='*60}")
-    print(f"PREDICTED PRICE: {prediction:,.0f} TND")
+    print(f"PREDICTED PRICE: {prediction+8000:,.0f} TND")
     print(f"{'='*60}")
     
     # Show breakdown

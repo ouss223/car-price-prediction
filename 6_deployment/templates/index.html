@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-container {
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            display: none;
+        }
+
+        .result-container.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .price-display {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .car-details {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .error-message {
+            background: #fee;
+            border: 2px solid #fcc;
+            color: #c33;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .price-display {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Car Price Prediction</h1>
+            <p>Get an instant estimate of your car's value</p>
+        </div>
+
+        <div class="form-container">
+            <form id="predictionForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brand">Brand *</label>
+                        <select id="brand" name="brand" required>
+                            <option value="">Select Brand</option>
+                            {% for brand in brands %}
+                            <option value="{{ brand }}">{{ brand }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">Model *</label>
+                        <select id="model" name="model" required>
+                            <option value="">Select Model</option>
+                            {% for model in models %}
+                            <option value="{{ model }}">{{ model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="body_type">Body Type *</label>
+                        <select id="body_type" name="body_type" required>
+                            <option value="">Select Body Type</option>
+                            {% for body_type in body_types %}
+                            <option value="{{ body_type }}">{{ body_type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year *</label>
+                        <input type="number" id="year" name="year" min="1990" max="2025" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kilometrage">Mileage (km) *</label>
+                        <input type="number" id="kilometrage" name="kilometrage" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="puissance_fiscale">Fiscal Power (CV) *</label>
+                        <input type="number" id="puissance_fiscale" name="puissance_fiscale" min="1" max="30" step="1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fuel_type">Fuel Type *</label>
+                        <select id="fuel_type" name="fuel_type" required>
+                            <option value="">Select Fuel Type</option>
+                            <option value="essence">Essence</option>
+                            <option value="diesel">Diesel</option>
+                            <option value="hybride">Hybride</option>
+                            <option value="electrique">Électrique</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transmission">Transmission *</label>
+                        <select id="transmission" name="transmission" required>
+                            <option value="">Select Transmission</option>
+                            <option value="Automatique">Automatique</option>
+                            <option value="Manuelle">Manuelle</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="is_new">Condition *</label>
+                    <select id="is_new" name="is_new" required>
+                        <option value="">Select Condition</option>
+                        <option value="no">Used</option>
+                        <option value="yes">New</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Predict Price</button>
+            </form>
+
+            <div class="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 15px; color: #666;">Calculating price...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <div class="result-container" id="resultContainer">
+                <h2 style="text-align: center; color: #333; margin-bottom: 10px;">Estimated Price</h2>
+                <div class="price-display" id="priceDisplay"></div>
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">TND (Tunisian Dinar)</p>
+                
+                <div class="car-details" id="carDetails"></div>
+                
+                <p style="text-align: center; color: #666; margin-top: 20px; font-size: 0.9em;">
+                    <strong>Note:</strong> This is an estimated price based on similar cars in our database. 
+                    Actual market prices may vary.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide previous results and errors
+            document.getElementById('resultContainer').classList.remove('show');
+            document.getElementById('errorMessage').classList.remove('show');
+            document.querySelector('.loading').classList.add('show');
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                document.querySelector('.loading').classList.remove('show');
+                
+                if (data.success) {
+                    // Display price
+                    document.getElementById('priceDisplay').textContent = data.predicted_price;
+                    
+                    // Display car details
+                    const detailsHTML = `
+                        <div class="detail-item">
+                            <span class="detail-label">Brand:</span>
+                            <span class="detail-value">${data.car_details.brand}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Model:</span>
+                            <span class="detail-value">${data.car_details.model}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Body Type:</span>
+                            <span class="detail-value">${data.car_details.body_type}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Year:</span>
+                            <span class="detail-value">${data.car_details.year}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Mileage:</span>
+                            <span class="detail-value">${Number(data.car_details.kilometrage).toLocaleString()} km</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Fiscal Power:</span>
+                            <span class="detail-value">${data.car_details.puissance_fiscale} CV</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Fuel Type:</span>
+                            <span class="detail-value">${data.car_details.fuel_type}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Transmission:</span>
+                            <span class="detail-value">${data.car_details.transmission}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Condition:</span>
+                            <span class="detail-value">${data.car_details.is_new === 'yes' ? 'New' : 'Used'}</span>
+                        </div>
+                    `;
+                    
+                    document.getElementById('carDetails').innerHTML = detailsHTML;
+                    document.getElementById('resultContainer').classList.add('show');
+                    
+                    // Scroll to results
+                    document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Display error
+                    document.getElementById('errorMessage').textContent = 'Error: ' + data.error;
+                    document.getElementById('errorMessage').classList.add('show');
+                }
+            } catch (error) {
+                document.querySelector('.loading').classList.remove('show');
+                document.getElementById('errorMessage').textContent = 'Error: Unable to connect to the server. Please try again.';
+                document.getElementById('errorMessage').classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
